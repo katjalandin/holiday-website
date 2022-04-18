@@ -1,0 +1,411 @@
+/*ta bort grund stil*/
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.gallery-container{
+	display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 15px;
+      /*overflow-y: auto;*/
+    
+    }
+    .gallery-img{
+   	width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+    
+ .box1{
+     grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    }
+
+    .box2{
+    	 grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 6;
+      
+    }
+
+    .box3{
+    	 grid-column-start: 6;
+    	grid-column-end: 9;
+    	grid-row-start: 1;
+    	grid-row-end: 5;
+      
+    }
+   
+     .box4{
+       grid-column-start: 1;
+    	grid-column-end: 3;
+    	grid-row-start: 3;
+    	grid-row-end: 6;
+    }
+ 	.gallery-container p{
+    	font-size: 16px;
+    	font-family: Verdana,Geneva,sans-serif;
+    }
+
+/*ställa in inställningar för navigation bar*/
+nav{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	background-color: #98CA32;
+	margin-bottom: 20px;
+}
+/*ställa in inställningar för logo*/ 
+.logo{
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 20px;
+}
+/*justera listor av navigation bar*/
+.nav-links{
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+/*ta bort onumererad listor dekoration*/ 
+.nav-links li{
+	list-style: none;
+}
+/*gör inställningar för länker in  navigation bar*/
+.nav-links a{
+	color:#263409;
+	text-decoration: none;
+	letter-spacing: 3px;
+	font-weight: bold;
+	font-size: 20px;
+}
+/*gömma toddle meny för skärmar f o m 1024px t o m  768*/
+.burger{
+	display:none;
+	cursor: pointer;
+}
+/*skapa rader för toddle meny*/
+.burger div{
+	width: 25px;
+	height: 3px;
+	background-color: white;
+	margin: 5px;
+	transition: all 0.3s ease;
+}
+/*skapa responsive design för skärmen 1024
+bredden för nav-links förstora nav-links block om skärmen krymper till 767px*/
+@media screen and (max-width:1024px){
+		.nav-links{
+		width: 60%;
+	}
+  .gallery-container {
+    
+    grid-template-columns: repeat(3, 1fr);
+    /*display: grid;
+    grid-template-rows: repeat(auto, 5vw);
+    grid-gap: 15px;
+    font-size: 10px;*/
+}
+
+
+}
+/*responsive design för skärmen 768 (mobile)*/
+
+@media screen and (max-width:768px){
+	/*gömma scroll för menyn*/
+	body{
+		/*gömmer scroll bar*/
+		overflow-x: hidden;
+	}/*blocket med navigation-links placeras till höger top*/
+	.nav-links{
+		position: absolute;
+		right:0px;
+		height:92vh;
+		top: 8vh;
+		background-color: green;
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		/*gömma menyn utanför skärmen*/
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+	}
+	/*gömma listor av menyn*/
+	.nav-links li{
+		opacity:0;
+	}
+	/*visa toggle meny */
+	.burger{
+		display: block;
+	}
+	.gallery-container {
+    
+    grid-template-columns: repeat(2, 1fr);
+    /*display: grid;
+    grid-template-rows: repeat(auto, 5vw);
+    grid-gap: 15px;
+    font-size: 10px;*/
+}
+
+/*om man klickar på toggle menyn så dyker den upp*/
+.nav-active{
+	transform: translateX(0%);
+}
+	.footer-wrapper .footer-left,
+	.footer-wrapper .footer-center,
+	.footer-wrapper .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+}
+/*animation för listor i toggle menyn*/
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+/*animation för toggle menyn */
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+	opacity: 0;
+}
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px,-6px);
+}
+
+.nav-links a:hover{
+	color:purple;
+}
+.nav-links a:active{
+	color:orange;
+}
+
+/*footer css*/
+
+.footer-wrapper{
+	background: #800040;
+	box-shadow: 2 2px 2px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	padding: 55px 50px;
+}
+
+.footer-wrapper .footer-left,
+.footer-wrapper .footer-center,
+.footer-wrapper .footer-right{	
+	display: inline-block;
+	vertical-align: top;
+}
+/*footer left*/
+.footer-wrapper .footer-left{
+	width: 40%;
+}
+.footer-wrapper h3{
+	color: #008080;
+	font:normal 42px;
+}
+.footer-wrapper h3 span{
+	color: white;
+}
+.footer-wrapper .footer-links{
+	color:#ffffff;
+	margin: 20px 0 12px;
+	padding:0;
+}
+.footer-wrapper .footer-links a{
+	display: inline-block;
+	line-height: 1.8;
+	font-weight: 400;
+	text-decoration: none;
+	color: inherit;
+}
+.footer-wrapper .footer-company-name{
+	color: #222;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+.footer-wrapper .footer-links a:before{
+	content: "|";
+	font-weight: 300;
+	font-size: 20px;
+	left: 0;
+	color: #fff;
+	display: inline-block;
+	padding-right: 5px;
+}
+.footer-wrapper .footer-links .link-1:before{
+	content: none;
+}
+/*footer center*/
+.footer-wrapper .footer-center{
+	width: 35%;
+}
+.footer-wrapper .footer-center i{
+	background-color: #802000;
+	color: white;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+.footer-wrapper .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+.footer-wrapper .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	font-weight: 400;
+	vertical-align: middle;
+	margin: 0;
+	
+}
+.footer-wrapper .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 2;
+}
+
+.footer-wrapper .footer-center p a{
+	color:lightgreen;
+	text-decoration: none;
+}
+.footer-wrapper .footer-links a:before{
+	content: "|";
+	font-weight: 300;
+	font-size: 20px;
+	left:0;
+	color:white;
+	display: inline-block;
+	padding-right: 5px;
+}
+.footer-wrapper .footer-right{
+	width: 20%;
+}
+.footer-wrapper .footer-company-about{
+		line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+.footer-wrapper .footer-company-about span{
+	display: block;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-wrapper .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-wrapper .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color: #33383b;
+	border-radius:2px;
+	font-size: 20px;
+	color: black;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/*css for grid gallery*/
+.gallery{
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1.5rem;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* bilder ramer */
+.gallery-frame {
+  padding: .5rem;
+  font-size: 1.2rem;
+  text-align: center;
+   color: #d9d9d9;
+}
+
+/* bilder */
+.item {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.item:hover {
+  opacity: .7;
+}
+
+
+
+/*breadcrumbs*/
+
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+
+/*kontakt sida form*/
+
